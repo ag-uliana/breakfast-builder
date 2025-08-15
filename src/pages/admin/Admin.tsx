@@ -3,7 +3,6 @@ import { supabase } from '../../supabaseClient';
 import { Link } from 'react-router-dom';
 
 export function Admin() {
-  const [session, setSession] = useState(() => supabase.auth.getSession());
   const [email, setEmail] = useState<string>('');
 
   useEffect(() => {
