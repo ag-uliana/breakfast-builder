@@ -43,9 +43,10 @@ const resp = await fetch(tgUrl, {
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text })
 });
+
 if (!resp.ok) {
   const t = await resp.text();
   console.error('Telegram error:', t);
   process.exit(1);
 }
-console.log('Sent to Telegram:', text);
+

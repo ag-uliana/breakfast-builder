@@ -25,7 +25,7 @@ export default function Home() {
         if (error) throw error;
         if (alive) setCategories((data ?? []) as Category[]);
       } catch (e: any) {
-        if (alive) setErr(e?.message ?? 'Не удалось загрузить категории');
+        if (alive) setErr(e?.message ?? 'failed to load categories');
       } finally {
         if (alive) setLoading(false);
       }
@@ -34,9 +34,9 @@ export default function Home() {
     return () => { alive = false; };
   }, []);
 
-  if (loading) return <p>Загрузка…</p>;
-  if (err) return <p style={{color:'crimson'}}>{err}</p>;
-  if (!categories.length) return <p>Нет активных категорий.</p>;
+  if (loading) return <p>loading</p>;
+  if (err) return <p>{err}</p>;
+  if (!categories.length) return <p>no categories available</p>;
 
   return (
     <section>

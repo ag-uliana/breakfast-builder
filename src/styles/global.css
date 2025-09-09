@@ -39,7 +39,7 @@ html, body, #root {
 }
 
 .app-main { 
-    padding: var(--pad); 
+    padding: 2%; 
     margin: 0 auto; 
     width: 100%; 
     max-width: var(--maxw); 
@@ -56,14 +56,14 @@ html, body, #root {
 .flex-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
     align-items: stretch;
     justify-content: center;
 }
 
 .flex-item {
-  flex: 0 0 100%;
-  max-width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -74,26 +74,34 @@ html, body, #root {
 }
 
 .card {
-    width: 45%;
+    font-family: inherit;
+    font-size: inherit;
+    width: 49.2%;
     box-sizing: border-box;
     display: flex;
     align-items: center; 
     justify-content: center; 
-    border: 1px solid #eee; 
+    border: 2px solid #000000; 
     border-radius: 12px; 
     padding: 1%; 
-    background: #fff;
-    min-height: 40px; 
-    text-align: center; 
+    min-height: 60px; 
+    min-width: 400px;
+    color: black;
+    text-decoration: none;
+}
+
+.card:hover {
+    background-color: #56A3A6;
 }
 
 .card.selected {
-  content: '✓';
-  /* position: absolute; */
-  /* top: 8px;
-  right: 12px; */
-  font-weight: 700;
-  color: seagreen;
+  font-weight: 600;  
+  color: #DD7596;
+  border-color: #DD7596;
+}
+
+.card.selected:hover {
+    color: white;
 }
 
 .sticky-bar {

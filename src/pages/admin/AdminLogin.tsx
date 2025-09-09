@@ -5,10 +5,20 @@ export function AdminLogin() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
 
+  const redirectTo =
+      (import.meta.env.VITE_SITE_URL || window.location.origin) +
+      import.meta.env.BASE_URL + 'admin'; 
+
   const sendMagicLink = async () => {
-    // Простой способ: magic link. Позже ограничим домен/список email
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin + '/admin' }});
+    const { error } = await supabase.auth.signInWithOtp({ 
+      email, 
+      options: { 
+        emailRedirectTo: redirectTo
+      }
+    });
+
     if (!error) setSent(true);
+
     else alert(error.message);
   };
 
@@ -17,7 +27,7 @@ export function AdminLogin() {
   return (
     <section>
       <h1>login to admin panel</h1>
-      <input placeholder="email" value={email} onChange={e=>setEmail(e.target.value)} style={{padding:12, width:'100%', margin:'8px 0'}}/>
+      <input placeholder="email" value={email} onChange={e=>setEmail(e.target.value)}/>
       <button className="button" onClick={sendMagicLink} disabled={!email}>send a link</button>
     </section>
   );

@@ -42,7 +42,7 @@ export default function Addons() {
 
         setAll((data ?? []) as Addon[]);
       } catch (e: any) {
-        setError(e.message ?? 'Не удалось загрузить добавки');
+        setError(e.message ?? 'failed to load add-ons');
       } finally {
         setLoading(false);
       }
@@ -67,13 +67,13 @@ export default function Addons() {
 
       nav(`/confirm/${orderId}`);
     } catch (e: any) {
-      alert(e.message ?? 'Ошибка при отправке заказа');
+      alert(e.message ?? 'error sending order');
     }
   };
 
-  if (loading) return <p>Загрузка…</p>;
-  if (error) return <p style={{ color: 'crimson' }}>{error}</p>;
-  if (!all.length) return <p>Для этой категории нет доступных добавок.</p>;
+  if (loading) return <p>loading...</p>;
+  if (error) return <p>{error}</p>;
+  if (!all.length) return <p>there are no additives available for this category</p>;
 
   return (
     <section>
