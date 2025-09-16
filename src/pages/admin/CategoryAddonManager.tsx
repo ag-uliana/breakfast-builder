@@ -80,46 +80,50 @@ export function CategoryAddonsManager() {
 };
 
   return (
-    <div className="list">
-      <div className="row">
+    <div className="addons_container">
+      <div className="addons_header">
         <select
           value={selectedCat}
           onChange={e => setSelectedCat(e.target.value)}
+          className="breakfastType_select"
         >
           {cats.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
         </select>
         <input
+          type="text"
+          className="search_input"
           placeholder="searching for ingredient…"
           value={q}
           onChange={e => setQ(e.target.value)}
         />
       </div>
 
-      <div className="list">
+      <div className="addons_list">
         {filtered.map(i => {
           const isAllowed = allowed.has(i.id);
           return (
-            <div key={i.id} className="row">
+            <div key={i.id} className="row addon_row">
               <div>{i.name}</div>
 
-              <label>
-                <input
-                  type="checkbox"
-                  checked={isAllowed}
-                  onChange={() => toggleAllowed(i.id)}
-                />
-                <span>allowed</span>
-              </label>
+              <div className="label_list">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={isAllowed}
+                    onChange={() => toggleAllowed(i.id)}
+                  />
+                  <span>allowed</span>
+                </label>
 
-              {/* В наличии */}
-              <label>
-                <input
-                  type="checkbox"
-                  checked={i.in_stock}
-                  onChange={e => toggleInStock(i.id, e.target.checked)}
-                />
-                <span>in stock</span>
-              </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={i.in_stock}
+                    onChange={e => toggleInStock(i.id, e.target.checked)}
+                  />
+                  <span>in stock</span>
+                </label>
+              </div>
             </div>
           );
         })}
