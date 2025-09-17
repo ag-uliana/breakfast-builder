@@ -77,14 +77,10 @@ function EmailLogin() {
     }
 
     const basename = import.meta.env.DEV ? '/' : import.meta.env.BASE_URL;
-    const redirectTo = `${window.location.origin}${basename}admin`;
+    const redirectTo = new URL(basename + 'admin', window.location.origin).toString();
     console.log('redirectTo →', redirectTo);
 
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: { emailRedirectTo: redirectTo },
-    });
-    if (error) alert(error.message); else setSent(true);
+    await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo: redirectTo } });
   };
 
   return (
