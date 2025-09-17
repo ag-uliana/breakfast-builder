@@ -175,6 +175,7 @@ html, body, #root {
 
 .breakfastType_select {
     height: 40%;
+    cursor: pointer;
 }
 
 .addon_row {
@@ -189,6 +190,11 @@ html, body, #root {
 select,
 ::picker(select) {
   appearance: base-select;
+  
+}
+
+option:hover {
+    background-color: #56A3A6;
 }
 
 select::picker-icon {
