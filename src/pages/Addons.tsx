@@ -97,7 +97,7 @@ export default function Addons() {
 
       <div className="sticky-bar">
         <button className="button sent__button" disabled={selected.length === 0} onClick={submit}>
-          sent
+          send
         </button>
       </div>
     </section>

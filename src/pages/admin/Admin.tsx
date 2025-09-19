@@ -65,9 +65,9 @@ export function Admin() {
 
 function EmailLogin() {
   const [email, setEmail] = useState('');
-  const [sent, _] = useState(false);
+  const [sent, setSent] = useState(false);
   const allowedEmail = (import.meta.env.VITE_ADMIN_EMAIL || '').toLowerCase();
-
+/// верунть отображение что ссылка отправлена 
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
 

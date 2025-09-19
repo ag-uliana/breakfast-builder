@@ -3,6 +3,11 @@ html, body, #root {
     margin: 0;
 }
 
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
 *,
 *::before,
 *::after { 
@@ -107,9 +112,8 @@ html, body, #root {
 }
 
 .card.selected {
-  font-weight: 600;  
-  color: #DD7596;
-  border-color: #DD7596;
+  color: black;
+  background-color: #DD7596;
 }
 
 .card.selected:hover {
@@ -127,6 +131,8 @@ html, body, #root {
 }
 
 .sticky-bar {
+  display: flex;
+  justify-content: end;
   position: sticky;
   bottom: 0;
   background: #fff;
@@ -158,6 +164,16 @@ html, body, #root {
     cursor: pointer;
 }
 
+.sent__button {
+  width: 20%;
+  font-weight: normal;
+}
+
+.sent__button:hover {
+  color: black;
+  background-color: #56A3A6;
+}
+
 .list { 
     display: flex; 
     flex-direction: column; 
@@ -182,9 +198,14 @@ html, body, #root {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
+    margin-top: 0.5%;
     padding: 8px 12px; 
     border: 1px solid #eee; 
-    border-radius: 10px; 
+    border-radius: 10px;
+}
+
+.addon_row:hover {
+  border-color: #56A3A6;
 }
 
 select,
